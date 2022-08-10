@@ -7,21 +7,21 @@ function App() {
     <div className="App">
       <form>
         <input type="number" placeholder="Insert a numberi" id="input" />
-        <BtnComp input={input} value="1"></BtnComp>
-        <BtnComp input={input} value="2"></BtnComp>
-        <BtnComp input={input} value="3"></BtnComp>
-        <BtnComp input={input} value="4"></BtnComp>
-        <BtnComp input={input} value="5"></BtnComp>
-        <BtnComp input={input} value="6"></BtnComp>
-        <BtnComp input={input} value="7"></BtnComp>
-        <BtnComp input={input} value="8"></BtnComp>
-        <BtnComp input={input} value="9"></BtnComp>
-        <BtnComp input={input} value="0"></BtnComp>
-        <BtnComp input={input} value="*"></BtnComp>
-        <BtnComp input={input} value="-"></BtnComp>
-        <BtnComp input={input} value="+"></BtnComp>
-        <BtnComp input={input} value="/"></BtnComp>
-        <BtnComp input={input} value="="></BtnComp>
+        <BtnComp value="1"></BtnComp>
+        <BtnComp value="2"></BtnComp>
+        <BtnComp value="3"></BtnComp>
+        <BtnComp value="4"></BtnComp>
+        <BtnComp value="5"></BtnComp>
+        <BtnComp value="6"></BtnComp>
+        <BtnComp value="7"></BtnComp>
+        <BtnComp value="8"></BtnComp>
+        <BtnComp value="9"></BtnComp>
+        <BtnComp value="0"></BtnComp>
+        <BtnComp value="*"></BtnComp>
+        <BtnComp value="-"></BtnComp>
+        <BtnComp value="+"></BtnComp>
+        <BtnComp value="/"></BtnComp>
+        <BtnComp value="="></BtnComp>
       </form>
     </div>
   );

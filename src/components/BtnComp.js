@@ -1,8 +1,15 @@
+//@format
 import React from "react";
 
-const BtnComp = (props) => {
-  const operar = (numero1, numero2, tipoDeOperacion, resultado) => {
-    switch (tipoDeOperacion) {
+class BtnComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { num1: props.num1 };
+    this.input = document.getElementById("input");
+  }
+
+  operar(numero1, numero2, tipoDeoperacion, resultado) {
+    switch (tipoDeoperacion) {
       case "*":
         resultado = numero1 * numero2;
         break;
@@ -18,83 +25,82 @@ const BtnComp = (props) => {
       default:
         break;
     }
-  };
+  }
 
-  const changeValue = (val) => {
-    props.numInput.value = val;
-  };
+  changeValue(val) {
+    this.input.value = val;
+  }
 
-  const addNum = (text, num) => {
+  addNum(text, num) {
     num = +num;
     num = text * 10 + num;
-    changeValue(num);
-  };
+    this.changeValue(num);
+  }
 
-  const pressButton = (prop) => {
-    let num1;
-    let num2;
-    let operacion;
-
+  pressButton(prop) {
+    this.input = document.getElementById("input");
     if (+prop >= 0 && +prop <= 9) {
-      console.log(props.numInput);
-      addNum(props.numInput.value, prop);
+      console.log(this.input);
+      this.addNum(this.input.value, prop);
       return;
     }
 
     switch (prop) {
       case "*":
-        num1 = props.numInput.value;
-        operacion = "*";
-        props.numInput.value = "";
-        props.numInput.placeholder = num1;
+        this.num1 = this.input.value;
+        this.operacion = "*";
+        this.input.value = "";
+        this.input.placeholder = this.num1;
         break;
 
       case "/":
-        num1 = props.numInput.value;
-        operacion = "/";
-        props.numInput.value = "";
-        props.numInput.placeholder = num1;
+        this.num1 = this.input.value;
+        this.operacion = "/";
+        this.input.value = "";
+        this.input.placeholder = this.num1;
         break;
 
       case "+":
-        num1 = props.numInput.value;
-        operacion = "+";
-        props.numInput.value = "";
-        props.numInput.placeholder = num1;
+        this.num1 = this.input.value;
+        this.operacion = "+";
+        this.input.value = "";
+        this.input.placeholder = this.num1;
         break;
 
       case "-":
-        num1 = props.numInput.value;
-        operacion = "-";
-        props.numInput.value = "";
-        props.numInput.placeholder = num1;
+        this.num1 = this.input.value;
+        this.operacion = "-";
+        this.input.value = "";
+        this.input.placeholder = this.num1;
         break;
 
       case "=":
-        num2 = props.numInput.value;
-        props.numInput.value = "";
-        operar(num1, num2, operacion, props.numInput.value);
+        this.num2 = this.input.value;
+        this.input.value = "";
+        this.operar(this.num1, this.num2, this.operacion, this.input.value);
         break;
 
       default:
         break;
     }
-  };
+  }
 
-  return (
-    <div className={"btn-div btn" + props.value}>
-      <button
-        className="btn"
-        id={"btn" + props.value}
-        onClick={(x) => {
-          x.preventDefault();
-          pressButton(props.value);
-        }}
-      >
-        {props.value}
-      </button>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className={"btn-div btn" + this.props.value}>
+        <button
+          className="btn"
+          id={"btn" + this.props.value}
+          onClick={(x) => {
+            x.preventDefault();
+            this.pressButton(this.props.value);
+          }}
+        >
+          {this.props.value}
+        </button>
+      </div>
+    );
+  }
+}
 
 export default BtnComp;
